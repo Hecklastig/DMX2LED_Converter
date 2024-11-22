@@ -17,15 +17,13 @@
   ******************************************************************************
   */
 /* USER CODE END Header */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "core.h"
 #include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "core.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -77,6 +75,7 @@ static void MX_TIM4_Init(void);
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -115,8 +114,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-    core_process();
+
     /* USER CODE BEGIN 3 */
+    core_process();
   }
   /* USER CODE END 3 */
 }
@@ -131,7 +131,8 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
@@ -144,7 +145,8 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Initializes the CPU, AHB and APB busses clocks 
+
+  /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -173,6 +175,7 @@ void SystemClock_Config(void)
   */
 static void MX_ADC1_Init(void)
 {
+
   /* USER CODE BEGIN ADC1_Init 0 */
 
   /* USER CODE END ADC1_Init 0 */
@@ -182,7 +185,8 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 1 */
 
   /* USER CODE END ADC1_Init 1 */
-  /** Common config 
+
+  /** Common config
   */
   hadc1.Instance = ADC1;
   hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
@@ -195,7 +199,8 @@ static void MX_ADC1_Init(void)
   {
     Error_Handler();
   }
-  /** Configure Regular Channel 
+
+  /** Configure Regular Channel
   */
   sConfig.Channel = ADC_CHANNEL_6;
   sConfig.Rank = ADC_REGULAR_RANK_1;
@@ -204,7 +209,8 @@ static void MX_ADC1_Init(void)
   {
     Error_Handler();
   }
-  /** Configure Regular Channel 
+
+  /** Configure Regular Channel
   */
   sConfig.Channel = ADC_CHANNEL_7;
   sConfig.Rank = ADC_REGULAR_RANK_2;
@@ -215,6 +221,7 @@ static void MX_ADC1_Init(void)
   /* USER CODE BEGIN ADC1_Init 2 */
 
   /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -224,6 +231,7 @@ static void MX_ADC1_Init(void)
   */
 static void MX_TIM2_Init(void)
 {
+
   /* USER CODE BEGIN TIM2_Init 0 */
 
   /* USER CODE END TIM2_Init 0 */
@@ -233,7 +241,8 @@ static void MX_TIM2_Init(void)
   TIM_IC_InitTypeDef sConfigIC = {0};
 
   /* USER CODE BEGIN TIM2_Init 1 */
-
+   __HAL_TIM_DISABLE_IT(&htim2, TIM_IT_CC1);
+  __HAL_TIM_DISABLE_IT(&htim2, TIM_IT_CC2);
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 0;
@@ -241,8 +250,6 @@ static void MX_TIM2_Init(void)
   htim2.Init.Period = 65535;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  __HAL_TIM_DISABLE_IT(&htim2, TIM_IT_CC1);
-  __HAL_TIM_DISABLE_IT(&htim2, TIM_IT_CC2);
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
@@ -355,6 +362,7 @@ static void MX_TIM4_Init(void)
   */
 static void MX_USART1_UART_Init(void)
 {
+
   /* USER CODE BEGIN USART1_Init 0 */
 
   /* USER CODE END USART1_Init 0 */
@@ -378,13 +386,15 @@ static void MX_USART1_UART_Init(void)
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_ERR);
   /* USER CODE END USART1_Init 2 */
+
 }
 
 /**
   * Enable DMA controller clock
   */
-static void MX_DMA_Init(void) 
+static void MX_DMA_Init(void)
 {
+
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
 
@@ -392,6 +402,7 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+
 }
 
 /**
@@ -402,6 +413,8 @@ static void MX_DMA_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOD_CLK_ENABLE();
@@ -417,6 +430,9 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
@@ -451,5 +467,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

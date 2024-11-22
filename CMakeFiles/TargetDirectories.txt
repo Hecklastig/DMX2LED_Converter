@@ -1,0 +1,5 @@
+C:/Users/nicos/Documents/GitHub/DMX2LED_Converter/CMakeFiles/blackpill-recv.dir
+C:/Users/nicos/Documents/GitHub/DMX2LED_Converter/CMakeFiles/edit_cache.dir
+C:/Users/nicos/Documents/GitHub/DMX2LED_Converter/CMakeFiles/rebuild_cache.dir
+C:/Users/nicos/Documents/GitHub/DMX2LED_Converter/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
+C:/Users/nicos/Documents/GitHub/DMX2LED_Converter/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
