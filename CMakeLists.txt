@@ -50,6 +50,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     Src/core.c
     Src/dmx_receiver.c
+    ../../Src/usb_debug.c
 )
 
 # Add include paths

@@ -60,8 +60,34 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_Pin GPIO_PIN_12
-#define LED_GPIO_Port GPIOB
+#define DMX_ADDR0_Pin GPIO_PIN_0
+#define DMX_ADDR0_GPIO_Port GPIOA
+#define DMX_ADDR1_Pin GPIO_PIN_1
+#define DMX_ADDR1_GPIO_Port GPIOA
+#define DMX_ADDR2_Pin GPIO_PIN_2
+#define DMX_ADDR2_GPIO_Port GPIOA
+#define DMX_ADDR3_Pin GPIO_PIN_5
+#define DMX_ADDR3_GPIO_Port GPIOA
+#define RGB_LED_RED_Pin GPIO_PIN_6
+#define RGB_LED_RED_GPIO_Port GPIOA
+#define RGB_LED_GREEN_Pin GPIO_PIN_7
+#define RGB_LED_GREEN_GPIO_Port GPIOA
+#define RGB_LED_BLUE_Pin GPIO_PIN_0
+#define RGB_LED_BLUE_GPIO_Port GPIOB
+#define DMX_ADDR4_Pin GPIO_PIN_1
+#define DMX_ADDR4_GPIO_Port GPIOB
+#define DMX_ADDR5_Pin GPIO_PIN_2
+#define DMX_ADDR5_GPIO_Port GPIOB
+#define DMX_ADDR6_Pin GPIO_PIN_10
+#define DMX_ADDR6_GPIO_Port GPIOB
+#define DMX_ADDR7_Pin GPIO_PIN_11
+#define DMX_ADDR7_GPIO_Port GPIOB
+#define LED_DAT_Pin GPIO_PIN_15
+#define LED_DAT_GPIO_Port GPIOB
+#define RS485_TX_Pin GPIO_PIN_9
+#define RS485_TX_GPIO_Port GPIOA
+#define RS485_RX_Pin GPIO_PIN_10
+#define RS485_RX_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
